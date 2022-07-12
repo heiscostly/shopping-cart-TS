@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
-type ShoppingCartContextProps = {
+type ShoppingCartProviderProps = {
   children: React.ReactNode;
 };
 // Setting the value for the functions that will be used in the context
@@ -23,7 +23,7 @@ export function useShoppingCart() {
   return useContext(ShoppingCartContext);
 }
 
-export function ShoppingCartProvider({ children }: ShoppingCartContextProps) {
+export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [cartItems, setCartItems] =useState<CartItem[]>([]);
     const cartQuantity = cartItems.reduce((quantity, item) => quantity + item.quantity, 0);
     //  Function to get the quantity of an item in the cart
